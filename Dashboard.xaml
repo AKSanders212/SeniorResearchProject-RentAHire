@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Aaron Keith Sanders
+     UA Grantham
+     IS498: Senior Research Project
+     Senior Research Capstone Project
+     Robert Chubbuck
+     File: Dashboard.xaml
+     19 April 2026-->
+
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SandersCapstoneProject.Dashboard">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25">            
+            <Label Text="User Dashboard Page"
+                   Style="{StaticResource Headline}"
+                   SemanticProperties.HeadingLevel="Level1"/>
+            <Label x:Name="WelcomeLabel"
+                   Text="Welcome"
+                   SemanticProperties.HeadingLevel="Level2"/>
+            
+            <!-- User Dashboard Menu (Employee or Institution) -->
+            <Label Text="Menu"
+               FontSize="18"
+               FontAttributes="Bold" />
+
+            <!-- Shared Options -->
+            <Button x:Name="AccountSettingsBtn"
+                Text="Account Settings"
+                Clicked="OnAccountSettingsClicked" />
+            <VerticalStackLayout x:Name="SettingsSection" IsVisible="False">
+                <Label x:Name="SettingsLbl"
+                   Text=""
+                   FontSize="14"/>    
+            </VerticalStackLayout>            
+
+            <!-- Employee Only Options -->
+            <Button x:Name="EmployeeOrientationBtn"
+                Text="Employee Orientation"
+                Clicked="OnEmployeeOrientationClicked"
+                IsVisible="False" />
+            <VerticalStackLayout x:Name="OrientationSection"
+                                 IsVisible="False">
+                <!-- First question-->
+                <Label
+                   Text="How long have you been looking for a job?"
+                   FontSize="14"/>
+                <HorizontalStackLayout>
+                    <CheckBox
+                        IsChecked="False"
+                        Color="Green"/>
+                    <Label Text="A year or less"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <CheckBox
+                        IsChecked="False"
+                        Color="Blue"/>
+                    <Label Text="Over a year"/>
+                </HorizontalStackLayout>
+
+
+                                <!-- Second question-->
+                <Label
+                   Text="Did you know that companies are looking for new rental hires, like you?"
+                   FontSize="14"/>
+                <HorizontalStackLayout>
+                    <CheckBox
+                        IsChecked="False"
+                        Color="Purple"/>
+                    <Label Text="Really? I wasn't aware!"/>
+                </HorizontalStackLayout>
+                    
+                <HorizontalStackLayout>
+                    <CheckBox
+                        IsChecked="False"
+                        Color="Orange"/>
+                    <Label Text="I could believe that"/>
+                </HorizontalStackLayout>               
+
+                <!-- Third question-->
+                <Label
+                    Text="So what are you waiting for?! Hit the submit button and lets begin!"
+                    FontSize="14"/>
+                <RadioButton
+                     x:Name="radioFinish"
+                     Content="Lets Go!"
+                     Value="LetsGo"
+                     CheckedChanged="FinishOrientation"/>
+                <RadioButton 
+                     Content="Im not ready yet!"
+                     Value="NotReady"/>
+            </VerticalStackLayout>
+
+            <!-- Institution Only Optiions-->
+            <Button x:Name="ViewHireListBtn"
+                Text="View Hire List"
+                Clicked="OnViewHireListClicked"
+                IsVisible="False" />
+            
+            <Button
+                x:Name="LogoutBtn"
+                Text="Logout" 
+                SemanticProperties.Hint="Logout of a created account"
+                Clicked="OnLogoutClicked"
+                HorizontalOptions="Fill" />
+            
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

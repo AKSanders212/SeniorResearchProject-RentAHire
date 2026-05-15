@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Aaron Keith Sanders
+     UA Grantham
+     IS498: Senior Research Project
+     Senior Research Capstone Project
+     Robert Chubbuck
+     File: AccountCreation.xaml
+     28 March 2026-->
+    
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SandersCapstoneProject.AccountCreation">
+    
+    <!-- Had to set this content in a grid, with a vertical scrollview in order to provide scrolling-->
+    <Grid RowDefinitions="*, Auto">
+
+        <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Always">
+
+            <VerticalStackLayout>
+                <Label Text="Welcome to Rent-A-Hire Account Creation"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+
+                <Label Text="Select your user account type: (If you're applying for work, select employee, otherwise, select institution.)" 
+                       FontSize="16"
+                       FontAttributes="Bold"/>
+
+                <!-- Employee Radio Button -->
+                <RadioButton 
+                    Content="Employee"
+                    Value="Employee"
+                    GroupName="AccountTypeGroup"
+                    CheckedChanged="OnAccountTypeChanged" />
+
+                <!-- Institution Radio Button -->
+                <RadioButton 
+                    Content="Institution"
+                    Value="Institution"
+                    GroupName="AccountTypeGroup"
+                    CheckedChanged="OnAccountTypeChanged" />
+          
+                    <!-- Employee Section -->
+                    <VerticalStackLayout x:Name="EmployeeSection" IsVisible="False">
+                        <Label Text="First Name" />
+                        <Entry x:Name="FirstNameEntry" Placeholder="Enter your first name"/>
+                        <Label Text="Last Name" />
+                        <Entry x:Name="LastNameEntry" Placeholder="Enter your last name"/>
+                        <Label Text="City" />
+                        <Entry x:Name="CityEntry" Placeholder="Enter your city location"/>
+                        <Label Text="State" />
+                        <Entry x:Name="StateEntry" Placeholder="Enter your state location"/>
+                        <Label Text="Zip Code" />
+                        <Entry x:Name="ZipEntry" Placeholder="Enter your zip code"/>
+                        <Label Text="University Name" />
+                        <Entry x:Name="UniversityEntry" Placeholder="Enter your university name where you graduated most recently"/>
+                        <Label Text="Degree Type (A.A.S, B.Sc, etc.)" />
+                        <Entry x:Name="DegreeTypeEntry" Placeholder="Enter the type of degree you earned"/>
+                        <Label Text="Degree Major (of study)" />
+                        <Entry x:Name="DegreeMajorEntry" Placeholder="Enter your degree major of study"/>
+                        <Label Text="Degree Minor (of study - if not applicable leave blank)" />
+                        <Entry x:Name="DegreeMinorEntry" Placeholder="Enter your degree minor of study, leave blank if not applicable"/>
+                        <Label Text="Phone Number" />
+                        <Entry x:Name="PhoneEntry" Placeholder="Enter your phone number"/>
+                        <Label Text="Email" />
+                        <Entry x:Name="EmailEntry" Placeholder="Enter your email address"/>
+                        <Label Text="Password" />
+                        <Entry x:Name="PasswordEntry" Placeholder="Enter your password" IsPassword="True"/>
+                        <CheckBox CheckedChanged="OnShowPasswordCheckedChanged" />
+                        <Label Text="(o) Show Password" />
+
+                    <Button Text="Create Account"
+                        Clicked="OnCreateEmployeeAccountClicked"/>
+                        
+                </VerticalStackLayout>
+
+                <!-- Institution Section -->
+                <VerticalStackLayout x:Name="InstitutionSection" IsVisible="False">
+                    <Label Text="Institution Name" />
+                    <Entry x:Name="InstitutionEntry" Placeholder="Enter your institutions name
+                           (either a company or a university)"/>
+                    <Label Text="City" />
+                    <Entry x:Name="InstCityEntry" Placeholder="Enter your city location"/>
+                    <Label Text="State" />
+                    <Entry x:Name="InstStateEntry" Placeholder="Enter your state location"/>
+                    <Label Text="Zip" />
+                    <Entry x:Name="InstZipEntry" Placeholder="Enter your zip code"/>
+                    <Label Text="Business Type (company, university, etc.)" />
+                    <Entry x:Name="BusinessEntry" Placeholder="Enter your institution's business type (e.g., company,
+                           university, etc.)"/>                    
+                    <Label Text="Phone Number" />
+                    <Entry x:Name="InstPhoneEntry" Placeholder="Enter your phone number"/>
+                    <Label Text="Email" />
+                    <Entry x:Name="InstEmailEntry" Placeholder="Enter your email address"/>
+                    <Label Text="Password" />
+                    <Entry x:Name="InstPasswordEntry" Placeholder="Enter your password" IsPassword="True"/>
+                    <CheckBox CheckedChanged="OnShowPasswordCheckedChanged" />
+                    <Label Text="(o) Show Password" />
+
+                    <Button Text="Create Account"
+                        Clicked="OnCreateInstitutionAccountClicked"/>
+                    
+                </VerticalStackLayout>                
+
+                    <BoxView HeightRequest="20" Color="Transparent"/>
+
+                    <Button Text="Clear Data Tables"
+                    Clicked="OnResetTables"/>
+
+                    <BoxView HeightRequest="20" Color="Transparent"/>
+
+            </VerticalStackLayout>
+               
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

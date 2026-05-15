@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Aaron Keith Sanders
+     UA Grantham
+     IS498: Senior Research Project
+     Senior Research Capstone Project
+     Robert Chubbuck
+     File: MainPage.xaml
+     28 March 2026-->
+    
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SandersCapstoneProject.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="160"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a submarine number ten" />
+
+            <Label
+                Text="Rent-A-Hire!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text=" Rent the work services of a college graduate. Cost based on experience and degree obtained."
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level3"
+                SemanticProperties.Description="Rent-A-Hire description message" />
+            
+            <!-- These buttons are used for creating a new account or logging into an existing account type -->
+            <Button
+                x:Name="CreationBtn"
+                Text="Create an account" 
+                SemanticProperties.Hint="Create a new account type (employee/institution)"
+                Clicked="OnCreationClicked"
+                HorizontalOptions="Fill" />
+            <Label Text="Login: Enter your email/phone number and password to login"/>
+            <Label Text="Email/Phone Number:"/>
+            <Entry x:Name="EmailPhoneEntry" Placeholder="Enter your email or phone number"/>
+            <Label Text="Password:"/>
+            <Entry x:Name="PasswordEntry" Placeholder="Enter your password" IsPassword="True"/>
+            <Button
+                x:Name="LoginBtn"
+                Text="Account Login" 
+                SemanticProperties.Hint="Login to a created account"
+                Clicked="OnLoginClicked"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
